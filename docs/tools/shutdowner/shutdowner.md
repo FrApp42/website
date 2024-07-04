@@ -17,6 +17,7 @@ dotnet add package FrenchyApps42.System.Shutdowner
 ```
 
 ## Usage
+### Shutdown a specific computer
 ```cs title="Program.cs"
 using FrenchyApps42.System.Shutdowner;
 using FrenchyApps42.System.Shutdowner.Models;
