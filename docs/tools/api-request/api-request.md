@@ -14,10 +14,11 @@ Authors:
 ## Installation
 
 ```
-dotnet add package FrenchyApps42.System.ApiRequest
+dotnet add package FrenchyApps42.Web.ApiRequest
 ```
 
 ## Usage
+### Simple request
 ```cs title="Program.cs"
 using FrenchyApps42.Web.ApiRequest.Structs;
 using FrenchyApps42.Web.ApiRequest;
@@ -70,6 +71,62 @@ namespace Program.Models
 
         [JsonPropertyName("email")]
         public string Email { get; set; } = string.Empty;
+    }
+}
+```
+
+## Advanded Usage
+### Sending binary file
+```cs
+using FrenchyApps42.Web.ApiRequest.Structs;
+using FrenchyApps42.Web.ApiRequest;
+using Program.Models;
+
+namespace Program
+{
+    public class Program
+    {
+        public static async Task Main()
+        {
+            string url = "";
+            string filePath = "path_to_your_file.ext";
+
+            if (File.Exists(filePath))                                                  // <-- Check if your file exist at the specified path
+            {
+                try
+                {
+                    byte[] fileBytes = File.ReadAllBytes(filePath);                     // <-- Convert your file into byte[]
+
+                    ApiRequest request = new(url, HttpMethod.Post);
+                    request
+                        .SetContentType("application/type")                             // <-- Set your content type
+                        .AddDocumentBody(fileBytes, "your_file_name.ext");              // <-- Add your file in byte[] format with it's name
+
+                    Result<FileModel> result = await request.RunDocument<FileModel>();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("File do not exist");
+            }
+        }
+    }
+}
+```
+
+```cs
+using System.Text.Json.Serialization;
+
+namespace Program.Models
+{
+    public class FileModel
+    {
+        [JsonPropertyName("success")]
+        public bool Success { get; set; }
     }
 }
 ```
