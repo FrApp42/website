@@ -51,6 +51,36 @@ namespace Program
 ```
 
 ## Advanded Usage
+### Ping before shutdown
+```cs
+using FrenchyApps42.System.Shutdowner;
+using FrenchyApps42.System.Shutdowner.Models;
+
+namespace Program
+{
+    public class Program
+    {
+        public static async Task Main()
+        {
+            Shutdowner shutdowner = new();
+            shutdowner
+                .PingBefore(5); // <-- Timeout of the ping
+
+            CommandResult result = await shutdowner.Run();
+
+            if (result.ExitCode == 0)
+            {
+                Console.WriteLine("Shutdown command executed successfully.");
+            }
+            else
+            {
+                Console.WriteLine($"Shutdown command failed with exit code {result.ExitCode}. Error: {result.ErrorMessage}");
+            }
+        }
+    }
+}
+```
+
 ### Log off the current user
 ```cs title="Program.cs"
 using FrenchyApps42.System.Shutdowner;
