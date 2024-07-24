@@ -10,17 +10,17 @@ A class that creates and send a magic packet for Wake On Lan.
 Original source: [Link](https://stackoverflow.com/a/58043033)
 Authors:
 * [Poul Bak](https://stackoverflow.com/users/5741643/poul-bak) - Original author
-* [Sikelio](https://github.com/Sikelio) - Contributor: Edited the code to match the today's conventions
+* [Sikelio](https://github.com/Sikelio) - Contributor
 
 ## Installation
 
 ```
-dotnet add package FrenchyApps42.System.WakeOnLan
+dotnet add package FrApps42.System.Net.WakeOnLan
 ```
 
 ## Usage
 ```cs title="Program.cs"
-using FrenchyApps42.System.WakeOnLan;
+using FrApps42.System.Net;
 
 namespace Program
 {

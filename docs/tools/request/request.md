@@ -1,8 +1,8 @@
 ---
-sidebar_label: 'Api Request'
+sidebar_label: 'Request'
 ---
 
-# ApiRequest
+# Request
 
 ## About
 A class helps you making call to APIs
@@ -14,14 +14,13 @@ Authors:
 ## Installation
 
 ```
-dotnet add package FrenchyApps42.Web.ApiRequest
+dotnet add package FrApps42.Web.API.Request
 ```
 
 ## Usage
 ### Simple request
 ```cs title="Program.cs"
-using FrenchyApps42.Web.ApiRequest.Structs;
-using FrenchyApps42.Web.ApiRequest;
+using FrApps42.Web.API;
 using Program.Models;
 
 namespace Program
@@ -78,8 +77,7 @@ namespace Program.Models
 ## Advanded Usage
 ### Sending binary file
 ```cs
-using FrenchyApps42.Web.ApiRequest.Structs;
-using FrenchyApps42.Web.ApiRequest;
+using FrApps42.Web.API;
 using Program.Models;
 
 namespace Program
