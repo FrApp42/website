@@ -1,8 +1,8 @@
 ---
-sidebar_label: 'Api Request'
+sidebar_label: 'Request'
 ---
 
-# ApiRequest
+# Request
 
 ## About
 A class helps you making call to APIs
@@ -14,14 +14,13 @@ Authors:
 ## Installation
 
 ```
-dotnet add package FrenchyApps42.Web.ApiRequest
+dotnet add package FrApps42.Web.API.Request
 ```
 
 ## Usage
 ### Simple request
 ```cs title="Program.cs"
-using FrenchyApps42.Web.ApiRequest.Structs;
-using FrenchyApps42.Web.ApiRequest;
+using FrApps42.Web.API;
 using Program.Models;
 
 namespace Program
@@ -30,20 +29,20 @@ namespace Program
     {
         public static async Task Main()
         {
-            string url = "";                    // <-- Your API url
-            HttpMethod method = HttpMethod.Get; // <-- Your method. Default is Get
+            string url = "";
+            HttpMethod method = HttpMethod.Get;
 
             ApiRequest request = new(url, method);
             request
-                .AddContentHeader("", "")       // <-- Any content header (optional)
-                .AddHeader("", "")              // <-- Any header (optional)
-                .AddJsonBody("")                // <-- Any json body (optional)
-                .AddQueryParam("", "")          // <-- Any query parameter (optional)
-                .AcceptJson();                  // <-- Adds "Accept", "application/json" in the headers (optional)
+                .AddContentHeader("", "")
+                .AddHeader("", "")
+                .AddJsonBody("")
+                .AddQueryParam("", "")
+                .AcceptJson();
 
-            Result<SomeModel> result = await request.Run<SomeModel>();
+            Result<SomeModel> result = await request.RunObject<SomeModel>();
 
-            if (result.StatusCode == 200)       // <-- Depends of the status code your waiting for
+            if (result.StatusCode == 200)
             {
                 // If your request succeded
             }
@@ -78,8 +77,7 @@ namespace Program.Models
 ## Advanded Usage
 ### Sending binary file
 ```cs
-using FrenchyApps42.Web.ApiRequest.Structs;
-using FrenchyApps42.Web.ApiRequest;
+using FrApps42.Web.API;
 using Program.Models;
 
 namespace Program
@@ -91,16 +89,16 @@ namespace Program
             string url = "";
             string filePath = "path_to_your_file.ext";
 
-            if (File.Exists(filePath))                                                  // <-- Check if your file exist at the specified path
+            if (File.Exists(filePath))
             {
                 try
                 {
-                    byte[] fileBytes = File.ReadAllBytes(filePath);                     // <-- Convert your file into byte[]
+                    byte[] fileBytes = File.ReadAllBytes(filePath);
 
                     ApiRequest request = new(url, HttpMethod.Post);
                     request
-                        .SetContentType("application/type")                             // <-- Set your content type
-                        .AddDocumentBody(fileBytes, "your_file_name.ext");              // <-- Add your file in byte[] format with it's name
+                        .SetContentType("application/type")
+                        .AddDocumentBody(fileBytes, "your_file_name.ext");
 
                     Result<FileModel> result = await request.RunDocument<FileModel>();
                 }

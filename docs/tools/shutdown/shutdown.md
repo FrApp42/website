@@ -1,26 +1,26 @@
 ---
-sidebar_label: 'Shutdowner'
+sidebar_label: 'Shutdown'
 ---
 
-# Shutdowner
+# Shutdown
 
 ## About
 A class that sends a command to shutdown a computer with its hostname or perform various other shutdown-related operations.
 
 Authors:
 * [Sikelio](https://github.com/Sikelio) - Original author
+* [AnthoDingo](https://github.com/AnthoDingo) - Contributor
 
 ## Installation
 
 ```
-dotnet add package FrenchyApps42.System.Shutdowner
+dotnet add package FrApps42.System.Computer.Shutdown
 ```
 
 ## Usage
 ### Shutdown a specific computer
 ```cs title="Program.cs"
-using FrenchyApps42.System.Shutdowner;
-using FrenchyApps42.System.Shutdowner.Models;
+using FrApps42.System.Computer.Shutdown;
 
 namespace Program
 {
@@ -51,10 +51,38 @@ namespace Program
 ```
 
 ## Advanded Usage
+### Ping before shutdown
+```cs
+using FrApps42.System.Computer.Shutdown;
+
+namespace Program
+{
+    public class Program
+    {
+        public static async Task Main()
+        {
+            Shutdowner shutdowner = new();
+            shutdowner
+                .PingBefore(5); // <-- Timeout of the ping
+
+            CommandResult result = await shutdowner.Run();
+
+            if (result.ExitCode == 0)
+            {
+                Console.WriteLine("Shutdown command executed successfully.");
+            }
+            else
+            {
+                Console.WriteLine($"Shutdown command failed with exit code {result.ExitCode}. Error: {result.ErrorMessage}");
+            }
+        }
+    }
+}
+```
+
 ### Log off the current user
 ```cs title="Program.cs"
-using FrenchyApps42.System.Shutdowner;
-using FrenchyApps42.System.Shutdowner.Models;
+using FrApps42.System.Computer.Shutdown;
 
 namespace Program
 {
@@ -83,8 +111,7 @@ namespace Program
 
 ### Shutdown and sign on automatically
 ```cs title="Program.cs"
-using FrenchyApps42.System.Shutdowner;
-using FrenchyApps42.System.Shutdowner.Models;
+using FrApps42.System.Computer.Shutdown;
 
 namespace Program
 {
@@ -113,8 +140,7 @@ namespace Program
 
 ### Set a timeout and add a custom reason for the shutdown
 ```cs title="Program.cs"
-using FrenchyApps42.System.Shutdowner;
-using FrenchyApps42.System.Shutdowner.Models;
+using FrApps42.System.Computer.Shutdown;
 
 namespace Program
 {

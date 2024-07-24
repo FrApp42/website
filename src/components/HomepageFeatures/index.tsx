@@ -10,11 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Free',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Open Source',
+    Svg: require('@site/static/img/undraw_open_source.svg').default,
     description: (
       <>
-        Our goal is to make Open Source widely accessible for any type of projects.
+        Our goal is to create Open Source projects widely accessible for any type of projects.
+      </>
+    ),
+  },
+  {
+    title: 'Community-Driven',
+    Svg: require('@site/static/img/undraw_community.svg').default,
+    description: (
+      <>
+        Our projects want to be driven by a vibrant community of contributors and users. Join us to collaborate and innovate together.
+      </>
+    )
+  },
+  {
+    title: 'Highly Documented',
+    Svg: require('@site/static/img/undraw_my_documents.svg').default,
+    description: (
+      <>
+        Comprehensive documentation is provided to help you get started quickly and understand our projects in depth.
       </>
     ),
   },
