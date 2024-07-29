@@ -15,7 +15,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Frenchy Apps 42', // Usually your GitHub org/user name.
+  organizationName: 'FrApp42', // Usually your GitHub org/user name.
   projectName: 'Docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
