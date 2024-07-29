@@ -11,12 +11,12 @@ const config: Config = {
   url: 'https://frenchyapps42.fr',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Docs',
+  baseUrl: '/website',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'FrApp42', // Usually your GitHub org/user name.
-  projectName: 'Docs', // Usually your repo name.
+  projectName: 'website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
