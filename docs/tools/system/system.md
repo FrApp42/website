@@ -32,7 +32,7 @@ Install-Package FrApp42.System
 #### Check if device is online
 
 ```csharp title="Program.cs"
-using namespace FrApp42.System.Net;
+using FrApp42.System.Net;
 
 string address = "your-address";
 string timeout = 5;
@@ -50,7 +50,7 @@ bool isOnline = online.Check();
 #### Shutdown a specific computer
 
 ```csharp title="Program.cs"
-using namespace FrApp42.System.Computer.Shutdown;
+using FrApp42.System.Computer.Shutdown;
 
 string hostname = "your-hostame";
 
@@ -164,7 +164,7 @@ else
 * [Sikelio](https://github.com/sikelio) - Contributor
 
 ```csharp title="Program.cs"
-using namespace FrApp42.System.Net;
+using FrApp42.System.Net;
 
 string macAddress = "your-mac-address";
 
