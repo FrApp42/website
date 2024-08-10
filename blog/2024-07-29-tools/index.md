@@ -29,4 +29,4 @@ The [documentation](/docs/tools/) is ready and you can start using these package
 
 ## Changelog
 
-You can read the changelog with the following link: [changelog](https://github.com/FrApp42/Tools/releases/tag/1.0.0)
+You can read the changelog with the following link: [changelog](https://github.com/FrApp42/Tools/releases/tag/1.0.0).
