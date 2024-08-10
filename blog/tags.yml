@@ -10,3 +10,7 @@ releases:
   label: Releases
   permalink: /releases
   description: Articles about our releases
+vcards:
+  label: VCards
+  permalink: /vcards
+  description: Articles about VCards package
