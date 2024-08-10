@@ -1,16 +1,16 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+tools:
+  label: Tools
+  permalink: /tools
+  description: Articles about "Tools" repo
+csharp:
+  label: C#
+  permalink: /csharp
+  description: Articles about C#
+releases:
+  label: Releases
+  permalink: /releases
+  description: Articles about our releases
+vcards:
+  label: VCards
+  permalink: /vcards
+  description: Articles about VCards package
