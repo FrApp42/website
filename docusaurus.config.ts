@@ -69,7 +69,11 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        // {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left'
+        },
         {
           href: 'https://github.com/FrApp42',
           label: 'GitHub',
@@ -87,6 +91,10 @@ const config: Config = {
               label: 'Docs',
               to: '/docs/intro',
             },
+            {
+              label: 'Blog',
+              to: '/blog'
+            }
           ],
         },
         {
