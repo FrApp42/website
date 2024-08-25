@@ -32,7 +32,7 @@ using FrApps42.Web.API;
 string url = "";
 HttpMethod method = HttpMethod.Get;
 
-ApiRequest request = new(url, method);
+Request request = new(url, method);
 request
     .AddContentHeader("", "")
     .AddHeader("", "")
@@ -83,7 +83,7 @@ if (File.Exists(filePath))
     {
         byte[] fileBytes = File.ReadAllBytes(filePath);
 
-        ApiRequest request = new(url, HttpMethod.Post);
+        Request request = new(url, HttpMethod.Post);
         request
             .SetContentType("application/type")
             .AddDocumentBody(fileBytes, "your_file_name.ext");
@@ -111,5 +111,25 @@ namespace Program
         [JsonPropertyName("success")]
         public bool Success { get; set; }
     }
+}
+```
+
+#### Getting binary file in response
+```cs title="Program.cs"
+using FrApps42.Web.API;
+
+string url = "";
+HttpMethod method = HttpMethod.Get;
+
+Request request = new(url, method);
+Result<byte[]> result = await request.RunGetBytes();
+
+if (result.StatusCode == 200 && result.Value != null)
+{
+    // Do something
+}
+else
+{
+    // Other cases
 }
 ```
