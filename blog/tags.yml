@@ -14,3 +14,11 @@ vcards:
   label: VCards
   permalink: /vcards
   description: Articles about VCards package
+system:
+  label: System
+  permalink: /system
+  description: Articles about System package
+web:
+  label: Web
+  permalink: /web
+  description: Articles about Web package
