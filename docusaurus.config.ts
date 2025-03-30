@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Frenchy Apps 42',
-  tagline: 'In Open Source we trust',
+  tagline: 'Isn\'t C# beautiful?',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

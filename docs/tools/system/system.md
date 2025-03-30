@@ -6,20 +6,22 @@ sidebar_label: 'System'
 
 Collection of classes in C# helping you to execute system operations.
 
-Content:
-* [Avake](#avake)
-  * [Simple usage](#simple-usage)
-  * [Log Awake error](#log-awake-error)
-  * [Updated version of Power Awake](#updated-version-of-power-awake)
-* [IsOnline](#isonline)
-  * [Check if device is online](#check-if-device-is-online)
-* [Shutdown](#shutdown-windows-only)
-  * [Shutdown a specific computer](#shutdown-a-specific-computer)
-  * [Ping before shutdown](#ping-before-shutdown)
-  * [Log off the current user](#log-off-the-current-user)
-  * [Shutdown and sign on automatically](#shutdown-and-sign-on-automatically)
-  * [Set a timeout and add a custom reason for the shutdown](#set-a-timeout-and-add-a-custom-reason-for-the-shutdown)
-* [WakeOnLan](#wakeonlan)
+## Content
+* [Installation](#installation)
+* [Examples](#examples)
+    * [Avake](#avake)
+        * [Simple usage](#simple-usage)
+        * [Log Awake error](#log-awake-error)
+        * [Updated version of Power Awake](#updated-version-of-power-awake)
+    * [IsOnline](#isonline)
+        * [Check if device is online](#check-if-device-is-online)
+    * [Shutdown](#shutdown-windows-only)
+        * [Shutdown a specific computer](#shutdown-a-specific-computer)
+        * [Ping before shutdown](#ping-before-shutdown)
+        * [Log off the current user](#log-off-the-current-user)
+        * [Shutdown and sign on automatically](#shutdown-and-sign-on-automatically)
+        * [Set a timeout and add a custom reason for the shutdown](#set-a-timeout-and-add-a-custom-reason-for-the-shutdown)
+    * [WakeOnLan](#wakeonlan)
 
 ## Installation
 
@@ -31,7 +33,18 @@ Install-Package FrApp42.System
 
 ### Avake
 
+Authors / Contributors:
 * [AnthoDingo](https://github.com/AnthoDingo) - Author (taken from PowerToys)
+
+---
+
+This class allows you to hanfle the awake on machines.
+
+:::warning
+This only works on Windows.
+:::
+
+---
 
 #### V1
 #### Simple usage
@@ -40,9 +53,9 @@ using FrApps42.System.Computer.Awake.v1;
 ...
 
 // Keep Screen on
-Awake..SetIndefiniteKeepAwake(true);
+Awake.SetIndefiniteKeepAwake(true);
 // Keep Screen off
-Awake..SetIndefiniteKeepAwake(false);
+Awake.SetIndefiniteKeepAwake(false);
 
 // Disable Keep Awake
 Awake.SetNoKeepAwake();
@@ -80,6 +93,11 @@ Awake.CompleteExit(0, false, "AppName");
 ```
 
 #### V2
+
+:::info
+In V2, be sure to disable KeepAwake before app closing.
+:::
+
 #### Updated version of Power Awake
 ```cs title="Program.cs"
 using FrApps42.System.Computer.Awake.v1;
@@ -95,9 +113,9 @@ private static void LogCompletedKeepAwakeThread(bool result)
 }
 
 // Keep Screen on
-Awake..SetIndefiniteKeepAwake(true);
+Awake.SetIndefiniteKeepAwake(true);
 // Keep Screen off
-Awake..SetIndefiniteKeepAwake(false);
+Awake.SetIndefiniteKeepAwake(false);
 
 // Keep Awake for a specified seconds with screen on
 Awake.SetTimedKeepAwake(3600, true);
@@ -108,11 +126,16 @@ Awake.SetTimedKeepAwake(3600, false);
 Awake.SetNoKeepAwake();
 ```
 
-In V2, be sure to disable KeepAwake before app closing.
-
 ### IsOnline
 
+Authors / Contributors:
 * [AnthoDingo](https://github.com/AnthoDingo) - Author
+
+---
+
+This allows you to check if a machine is online with a ping.
+
+---
 
 #### Check if device is online
 
@@ -129,8 +152,19 @@ bool isOnline = online.Check();
 
 ### Shutdown (Windows-only)
 
+Authors / Contributors:
 * [Sikelio](https://github.com/sikelio) - Author
 * [AnthoDingo](https://github.com/AnthoDingo) - Contributor
+
+---
+
+This class allow you to shutdown remotly Windows machines.
+
+:::warning
+This only work on Windows machines.
+:::
+
+---
 
 #### Shutdown a specific computer
 
@@ -245,8 +279,15 @@ else
 
 ### WakeOnLan
 
+Authors / Contributors:
 * [Poul Bak](https://stackoverflow.com/users/5741643/poul-bak) - Original author
 * [Sikelio](https://github.com/sikelio) - Contributor
+
+---
+
+This class allows you to use WOL to power on machine of their MAC address.
+
+---
 
 ```csharp title="Program.cs"
 using FrApp42.System.Net;

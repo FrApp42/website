@@ -5,6 +5,7 @@ sidebar_position: 3
 
 # VCards
 
+Authors / Contributors:
 * Based on project [MixERP.Net.VCards](https://github.com/mixerp/MixERP.Net.VCards)
 * [AnthoDingo](http://github.com/AnthoDingo) - Contributor
 
